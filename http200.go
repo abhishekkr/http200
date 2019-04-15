@@ -6,10 +6,12 @@ import (
 	"net/http"
 
 	handler "./handler"
+
+	"github.com/abhishekkr/gol/golenv"
 )
 
 func main() {
-	listenAt := ":9000"
+	listenAt := golenv.OverrideIfEnv("LISTEN_AT", ":9000")
 	log.Printf("listening at: %s", listenAt)
 	err := http.ListenAndServe(listenAt, handler.AppHandler())
 
