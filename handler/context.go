@@ -10,6 +10,7 @@ type Context struct {
 	http.ResponseWriter
 	*http.Request
 	Params []string
+	App    *App
 }
 
 func (c *Context) Text(code int, body string) {
