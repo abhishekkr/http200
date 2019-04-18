@@ -47,7 +47,6 @@ func (a *App) Handle(method string, pattern string, handler Handler) {
 
 func (a *App) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	ctx := &Context{Request: r, ResponseWriter: w, App: a}
-
 	if customRoute(ctx) {
 		return
 	}
@@ -57,11 +56,12 @@ func (a *App) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func AppHandler() *App {
 	return &App{
 		Routes: []Route{
-			handle("GET", `^/$`, RouteWiki),
-			handle("POST", `^/$`, RoutePost),
 			handle("GET", `^/200$`, Route200),
 			handle("GET", `^/400$`, Route400),
+			handle("GET", `^/404$`, Route404),
 			handle("GET", `^/500$`, Route500),
+			handle("GET", `^/$`, RouteWiki),
+			handle("POST", `^/$`, RoutePost),
 		},
 		DefaultRoutes: map[string]Handler{
 			"Route200": Route200,

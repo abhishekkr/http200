@@ -16,10 +16,12 @@
 
 * un-handled route's response status code could be customized via env `HTTP200_DEFAULT_ROUTE` with values `Route200`, `Route400`, `Route404`, `Route500`
 
+* add custom route and request method with response code and body if required
+
 
 #### todo:
 
-* add custom route and request method with response code and body if required
+* custom routes from persistent VCR-cassettes, OpenAPI specs, RAML
 
 ---
 

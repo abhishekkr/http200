@@ -2,13 +2,11 @@ package httplog
 
 import (
 	"fmt"
-	"io/ioutil"
 	"net/http"
 )
 
 func LogRequest(req *http.Request) {
 	logRequestMeta(req)
-	logRequestBody(req)
 }
 
 func logRequestMeta(req *http.Request) {
@@ -43,15 +41,4 @@ func logRequestEncoding(req *http.Request) {
 	for encoding := range req.TransferEncoding {
 		fmt.Printf("  %s\n", encoding)
 	}
-}
-
-func logRequestBody(req *http.Request) {
-	body, err := ioutil.ReadAll(req.Body)
-	if err != nil {
-		fmt.Println("(can't process request body)")
-		return
-	}
-	fmt.Printf(`
-Body: %s
-`, body)
 }

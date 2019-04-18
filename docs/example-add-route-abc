@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+curl -H "Content-Type: application/json" -X POST  -d '{
+	"PatternStr": "^/abc$",
+	"Method": "POST",
+	"HandlerDetail": {
+		"Status": 201,
+		"Body": "what is what"
+	}
+}' http://127.0.0.1:9000/
+
+
+curl -H "Content-Type: application/json" -X POST  -d '{ "Method": "WHAT" }' http://127.0.0.1:9000/
