@@ -1,7 +1,8 @@
 ## http200
 
 > your friendly http server to use as placeholder for integration points of your service under development
-
+>
+> docker: `docker run -it docker.io/abhishekkr/http:0.4`
 
 #### it provides:
 
@@ -12,6 +13,8 @@
 * a simple placeholder http server providing `/200`,`/400`,`/404`,`/500` for respective HTTP response codes
 
 * returns `404` response code for any non-default or non-customized route
+
+* un-handled route's response status code could be customized via env `HTTP200_DEFAULT_ROUTE` with values `Route200`, `Route400`, `Route404`, `Route500`
 
 
 #### todo:
