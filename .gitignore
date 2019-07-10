@@ -11,3 +11,5 @@ temp/*
 *.cfg
 *.lock
 *.sock
+build.sh
+out/**

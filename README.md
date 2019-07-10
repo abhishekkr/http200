@@ -1,8 +1,10 @@
 ## http200
 
+> [get binary of latest release here](https://github.com/abhishekkr/http200/releases/latest)
+
 > your friendly http server to use as placeholder for integration points of your service under development
 >
-> docker: `docker run -it docker.io/abhishekkr/http:0.4`
+> docker: `docker run -it docker.io/abhishekkr/http:0.4.1`
 
 #### it provides:
 
@@ -24,6 +26,4 @@
 * custom routes from persistent VCR-cassettes, OpenAPI specs, RAML
 
 ---
-
-
-
+---
