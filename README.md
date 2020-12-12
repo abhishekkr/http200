@@ -8,7 +8,7 @@
 
 #### it provides:
 
-* listens default at port `:9000`, allows to change it using environment variable like `LISTEN_AT=:8080`
+* listens default at port `:9000`, allows to change it using environment variable like `HTTP200_LISTEN_AT=:8080`
 
 * shows this wiki at `/wiki`
 

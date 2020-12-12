@@ -17,11 +17,12 @@ var (
 		  <li>shows this wiki at <code>/wiki</code></li>
 		  <li>a simple placeholder http server providing <code>/200</code>,<code>/400</code>,<code>/404</code>,<code>/500</code> for respective HTTP response codes</li>
 		  <li>returns 404 response code for any non-default or non-customized route</li>
+		  <li>add custom route and request method with response code and body if required</li>
 		</ul>
 	  </div>
 	  <div>todo:
 	    <ul>
-		  <li>add custom route and request method with response code and body if required</li>
+		  <li>custom routes from persistent VCR-cassettes, OpenAPI specs, RAML</li>
 		</ul>
 	  </div>
 	  <div></div>

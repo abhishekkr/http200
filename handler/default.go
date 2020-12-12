@@ -66,6 +66,7 @@ func AppHandler() *App {
 			handle("DELETE", `^/200$`, Route200),
 			handle("HEAD", `^/200$`, Route200),
 			handle("OPTIONS", `^/200$`, Route200),
+			handle("GET", `^/wiki$`, RouteWiki),
 			handle("GET", `^/$`, RouteWiki),
 			handle("POST", `^/$`, RoutePost),
 		},
