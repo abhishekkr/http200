@@ -1,8 +1,13 @@
 package httplog
 
 import (
+	"bytes"
 	"fmt"
+	"io/ioutil"
+	"log"
 	"net/http"
+
+	"github.com/abhishekkr/gol/golenv"
 )
 
 func LogRequest(req *http.Request) {
@@ -21,6 +26,7 @@ RemoteAddr: %s
 		req.ContentLength, req.Host, req.RemoteAddr)
 	logRequestEncoding(req)
 	logRequestHeaders(req)
+	logRequestBody(req)
 }
 
 func logRequestHeaders(req *http.Request) {
@@ -41,4 +47,20 @@ func logRequestEncoding(req *http.Request) {
 	for encoding := range req.TransferEncoding {
 		fmt.Printf("  %s\n", encoding)
 	}
+}
+
+func logRequestBody(req *http.Request) {
+	if !golenv.OverrideIfEnvBool("HTTP200_BODY", false) {
+		return
+	}
+	buf, bodyErr := ioutil.ReadAll(req.Body)
+	if bodyErr != nil {
+		log.Print("bodyErr ", bodyErr.Error())
+		return
+	}
+
+	rdr1 := ioutil.NopCloser(bytes.NewBuffer(buf))
+	rdr2 := ioutil.NopCloser(bytes.NewBuffer(buf))
+	log.Printf("Body:\n%q\n", rdr1)
+	req.Body = rdr2
 }

@@ -12,6 +12,8 @@
 
 * listens default at port `:9000`, allows to change it using environment variable like `HTTP200_LISTEN_AT=:8080`
 
+* enable printing request body using environment variable `HTTP200_BODY=true`
+
 * shows this wiki at `/wiki`
 
 * a simple placeholder http server providing `/200`,`/400`,`/404`,`/500` for respective HTTP response codes
