@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Testhandle(t *testing.T) {
+func TestHandle(t *testing.T) {
 	h := handle("X", `^Y`, nil)
 	r := Route{Method: "X", Pattern: regexp.MustCompile(`^Y`), Handler: nil}
 	assert.EqualValues(t, h, r)

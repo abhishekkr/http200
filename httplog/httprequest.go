@@ -44,8 +44,8 @@ func logRequestEncoding(req *http.Request) {
 		return
 	}
 	fmt.Println("Encoding:")
-	for encoding := range req.TransferEncoding {
-		fmt.Printf("  %s\n", encoding)
+	for idx, encoding := range req.TransferEncoding {
+		fmt.Printf("  %d* %s\n", idx, encoding)
 	}
 }
 
