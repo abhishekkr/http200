@@ -15,13 +15,8 @@ build-for-all(){
     exit 123
 
   mkdir -p ./bin
-  for GOOS in darwin linux windows; do
-    for GOARCH in 386 amd64; do
-      [[ ! -z "${FOR_OS_ARCH}" && "${GOOS}-${GOARCH}" != "${FOR_OS_ARCH}" ]] && continue
-      echo "building for $GOOS - $GOARCH"
-      CGO_ENABLED=0 go build -o ./bin/${GO_MAIN_BIN}-$GOOS-$GOARCH "${GO_MAIN_FILE}"
-    done
-  done
+  echo "building for $GOOS - $GOARCH"
+  CGO_ENABLED=1 go build -o ./bin/${GO_MAIN_BIN}-$GOOS-$GOARCH "${GO_MAIN_FILE}"
 }
 
 ##############################################################################

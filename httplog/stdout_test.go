@@ -36,6 +36,7 @@ func TestLogRequestHeaders(t *testing.T) {
 
 	result := captureOutput(func() { logRequestHeaders(req) })
 	assert.True(t, strings.Contains(result, "Headers:\n"))
+	assert.True(t, strings.Contains(result, "X-This-Use: [test]"))
 }
 
 func TestLogRequestEncoding(t *testing.T) {
@@ -48,6 +49,7 @@ func TestLogRequestEncoding(t *testing.T) {
 
 	result := captureOutput(func() { logRequestEncoding(req) })
 	assert.True(t, strings.Contains(result, "Encoding:\n"))
+	assert.True(t, strings.Contains(result, "chunked"))
 }
 
 func TestLogRequestBody(t *testing.T) {
@@ -59,6 +61,7 @@ func TestLogRequestBody(t *testing.T) {
 
 	result := captureOutput(func() { logRequestBody(req) })
 	assert.True(t, strings.Contains(result, "Body:\n"))
+	assert.True(t, strings.Contains(result, "success"))
 }
 
 func captureOutput(f func()) string {
